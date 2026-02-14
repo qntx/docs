@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 // Custom warning icon (inline SVG instead of react-icons dependency)
 export default function AdmonitionIconCaution(props) {

@@ -1,10 +1,9 @@
 import React from 'react';
 import clsx from 'clsx';
-export default function FooterLayout({style, links, logo, copyright}) {
+export default function FooterLayout({ style, links, logo, copyright }) {
   // Removed footer--dark class to allow CSS variables to control colors in both modes
   return (
-    <footer
-      className="footer">
+    <footer className="footer">
       <div className="container container-fluid">
         {links}
         {(logo || copyright) && (

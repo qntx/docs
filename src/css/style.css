@@ -32,7 +32,7 @@
 }
 
 /* Dark mode — inverted Paper & Ink palette */
-[data-theme="dark"] {
+[data-theme='dark'] {
   --color-paper: #141210;
   --color-paper-dark: #1e1c18;
   --color-ink: #e8e0d0;
@@ -78,7 +78,7 @@
   --ifm-table-tr-border: var(--color-ink-ghost);
 }
 
-[data-theme="light"] {
+[data-theme='light'] {
   --ifm-background-surface-color: var(--color-paper);
   --ifm-background-color: var(--color-paper);
   --ifm-navbar-active-color: var(--color-ink);
@@ -109,92 +109,8 @@
 }
 
 @font-face {
-  font-family: "Haffer";
-  src: url(../../static/fonts/Haffer-Light.ttf);
-  font-weight: 200;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Haffer";
-  src: url(../../static/fonts/Haffer-Medium.ttf);
-  font-weight: 400;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Haffer";
-  src: url(../../static/fonts/Haffer-Regular.ttf);
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Haffer";
-  src: url(../../static/fonts/Haffer-SemiBold.ttf);
-  font-weight: bold;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "HafferSQ";
-  src: url(../../static/fonts/HafferSQ-Light.ttf);
-  font-weight: 200;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "HafferSQ";
-  src: url(../../static/fonts/HafferSQ-Medium.ttf);
-  font-weight: 400;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "HafferSQ";
-  src: url(../../static/fonts/HafferSQ-Regular.ttf);
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "HafferSQ";
-  src: url(../../static/fonts/HafferSQ-SemiBold.ttf);
-  font-weight: bold;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "TTCommonsPro";
-  src: url(../../static/fonts/TTCommonsProMonoMedium.ttf);
-  font-weight: 200;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "TTCommonsPro";
-  src: url(../../static/fonts/TTCommonsProMonoRegular.ttf);
-  font-weight: 100;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "FiraCode";
+  font-family: 'FiraCode';
   src: url(../../static/fonts/FiraCode_VariableFont_wght.ttf);
-}
-
-@font-face {
-  font-family: "DM Mono";
-  src: url(../../static/fonts/DMMono-Regular.ttf);
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "DM Mono";
-  src: url(../../static/fonts/DMMono-Medium.ttf);
-  font-weight: 500;
-  font-style: normal;
 }
 
 /* Selection */
@@ -223,8 +139,8 @@ html {
 }
 
 body {
-  font-family: "Haffer", sans-serif;
-  font-size: 16px;
+  font-family: 'IBM Plex Mono', 'Courier New', monospace;
+  font-size: 14px;
   font-weight: 300;
   line-height: 1.7;
   color: var(--color-ink);
@@ -235,26 +151,41 @@ a {
   transition: color 0.2s ease;
 }
 
-h1, h1.anchor {
+h1,
+h2,
+h3,
+h4,
+h1.anchor,
+h2.anchor,
+h3.anchor,
+h4.anchor {
+  font-family: 'Playfair Display', Georgia, serif !important;
+}
+
+h1,
+h1.anchor {
   font-weight: 400 !important;
   font-size: 32px !important;
   padding-bottom: 16px !important;
   margin-top: 0 !important;
 }
 
-h2, h2.anchor {
+h2,
+h2.anchor {
   font-weight: 400 !important;
   font-size: 24px !important;
   margin-top: 2rem !important;
 }
 
-h3, h3.anchor {
+h3,
+h3.anchor {
   font-weight: 400 !important;
   font-size: 20px !important;
   margin-top: 1.5rem !important;
 }
 
-h4, h4.anchor {
+h4,
+h4.anchor {
   font-size: 16px !important;
   font-weight: 600 !important;
 }
@@ -268,7 +199,7 @@ p {
   list-style: none;
   margin: 0 !important;
   padding-left: 0 !important;
-  font-family: "FiraCode";
+  font-family: 'IBM Plex Mono', monospace;
   font-size: 12px;
   font-weight: 400;
   letter-spacing: calc(0.05 * 12px);
@@ -296,7 +227,7 @@ li.theme-doc-sidebar-item-category.theme-doc-sidebar-item-category-level-2 {
 }
 
 li.theme-doc-sidebar-item-category.theme-doc-sidebar-item-category-level-2::after {
-  content: "";
+  content: '';
   background-position: 0 0;
   background-image: linear-gradient(
     to right,
@@ -320,25 +251,25 @@ li.theme-doc-sidebar-item-link-level-3 a {
 
 .table-of-contents,
 .table-of-contents ul {
-  font-family: "FiraCode";
+  font-family: 'IBM Plex Mono', monospace;
 }
-[class*="tableOfContents"] {
+[class*='tableOfContents'] {
   padding-top: 20px;
 }
 
 .pagination-nav__link--prev .pagination-nav__label::before {
-  content: "";
+  content: '';
 }
 
 .pagination-nav__link--next .pagination-nav__label::after {
-  content: "";
+  content: '';
 }
 
 .pagination-nav__link {
   border: none;
 }
 
-[data-theme="dark"] .navbar__link:hover {
+[data-theme='dark'] .navbar__link:hover {
   color: var(--color-ink) !important;
 }
 
@@ -351,11 +282,11 @@ li.theme-doc-sidebar-item-link-level-3 a {
   font-weight: 400;
   font-size: 9px;
   text-transform: uppercase;
-  font-family: "FiraCode";
+  font-family: 'IBM Plex Mono', monospace;
 }
 
 ul {
-  font-family: "Haffer", sans-serif;
+  font-family: 'IBM Plex Mono', 'Courier New', monospace;
   font-weight: 300;
   text-transform: none;
 }
@@ -367,7 +298,7 @@ ul {
 }
 
 .navbar__item.navbar__link {
-  font-family: "DM Mono", monospace;
+  font-family: 'IBM Plex Mono', monospace;
   color: var(--text-secondary);
   font-size: 11px !important;
   align-items: center;
@@ -392,7 +323,7 @@ ul {
   font-size: 16px !important;
   line-height: 27.2px !important;
   font-weight: 400 !important;
-  font-family: "Haffer";
+  font-family: 'Playfair Display', Georgia, serif;
   letter-spacing: 0.32px;
 }
 
@@ -406,7 +337,7 @@ ul {
 .breadcrumbs__item.breadcrumbs__item--active .breadcrumbs__link {
   background: initial !important;
   color: var(--text-primary);
-  font-family: "DM Mono", monospace;
+  font-family: 'IBM Plex Mono', monospace;
 }
 
 /* Footer */
@@ -450,7 +381,7 @@ ul {
   position: relative;
 }
 .theme-doc-sidebar-menu.menu__list > li::after {
-  content: "";
+  content: '';
   background-position: 0 0;
   background-image: linear-gradient(
     to right,
@@ -472,7 +403,7 @@ ul {
   position: relative;
 }
 .menu__list-item-collapsible::after {
-  content: "";
+  content: '';
   background-position: 0 0;
   background-image: linear-gradient(
     to right,
@@ -496,7 +427,7 @@ ul {
 }
 .theme-doc-sidebar-item-link-level-2:not(:last-child)::after,
 .theme-doc-sidebar-item-link-level-3:not(:last-child)::after {
-  content: "";
+  content: '';
   background-position: 0 0;
   background-image: linear-gradient(
     to right,
@@ -530,7 +461,7 @@ ul {
   border-radius: 0 !important;
   color: var(--color-ink-light);
   font-size: 11px !important;
-  font-family: "DM Mono", monospace;
+  font-family: 'IBM Plex Mono', monospace;
   letter-spacing: 0.15em !important;
   transition: color 0.2s ease;
 }
@@ -566,7 +497,7 @@ ul {
 /* ---------- Table of Contents ---------- */
 .table-of-contents__link {
   color: var(--color-ink-light);
-  font-family: "DM Mono", monospace;
+  font-family: 'IBM Plex Mono', monospace;
   font-size: 0.75rem;
   line-height: 130%;
   letter-spacing: 0.1em;
@@ -658,7 +589,7 @@ ul {
   margin: 0 !important;
   cursor: pointer;
   color: var(--color-ink-light);
-  font-family: "DM Mono", monospace;
+  font-family: 'IBM Plex Mono', monospace;
   font-size: 11px;
   letter-spacing: 0.15em;
   text-transform: uppercase;
@@ -682,7 +613,7 @@ ul {
 }
 
 .breadcrumbs .breadcrumbs__item::after {
-  background: url("../../static//img/slice.svg");
+  background: url('../../static//img/slice.svg');
   height: 15px;
   background-size: cover;
   background-repeat: no-repeat;
@@ -724,8 +655,8 @@ ul {
 }
 
 .pagination-nav:has(
-    .pagination-nav__link:first-child.pagination-nav__link--next
-  ) {
+  .pagination-nav__link:first-child.pagination-nav__link--next
+) {
   justify-content: end;
 }
 
@@ -757,7 +688,7 @@ ul {
 }
 
 .footer .footer__copyright {
-  font-family: "DM Mono", monospace !important;
+  font-family: 'IBM Plex Mono', monospace !important;
   font-size: 10px !important;
   text-transform: uppercase !important;
   letter-spacing: 0.15em;
@@ -765,7 +696,6 @@ ul {
   align-items: center;
   justify-content: space-between;
 }
-
 
 .navbar {
   border-bottom: 1px solid var(--color-ink-ghost) !important;
@@ -783,7 +713,7 @@ ul {
   position: relative;
   border-left-width: 3px !important;
   border-radius: 0 !important;
-  font-family: Haffer !important;
+  font-family: 'IBM Plex Mono', monospace !important;
   box-shadow: 0 !important;
 }
 
@@ -827,7 +757,7 @@ blockquote {
 
 /* ---------- Code Blocks ---------- */
 code {
-  font-family: "FiraCode", "DM Mono", monospace !important;
+  font-family: 'FiraCode', 'IBM Plex Mono', monospace !important;
   font-size: 0.9em;
 }
 
@@ -841,7 +771,7 @@ code {
   display: flex !important;
   align-items: center;
   gap: 0 8px !important;
-  font-family: "DM Mono", monospace !important;
+  font-family: 'IBM Plex Mono', monospace !important;
   font-size: 11px !important;
   letter-spacing: 0.05em;
 }
@@ -856,12 +786,14 @@ code {
 .tabs-container > ul li {
   border-radius: 3px 3px 0 0 !important;
   font-weight: 400 !important;
-  font-family: "DM Mono", monospace;
+  font-family: 'IBM Plex Mono', monospace;
   letter-spacing: 0.1em;
   font-size: 11px !important;
   text-transform: uppercase;
   padding: 8px 12px !important;
-  transition: background-color 0.2s ease, color 0.2s ease;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
 }
 
 .tabs-container > ul li.tabs__item--active {
@@ -917,7 +849,7 @@ th {
 table tr th {
   color: var(--ifm-table-header-color) !important;
   font-size: 12px !important;
-  font-family: "DM Mono", monospace !important;
+  font-family: 'IBM Plex Mono', monospace !important;
   font-weight: 600 !important;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -955,7 +887,7 @@ hr {
 ol:not([class]) li {
   font-size: 16px !important;
   font-weight: 400 !important;
-  font-family: "Haffer";
+  font-family: 'IBM Plex Mono', monospace;
 }
 
 .theme-doc-sidebar-menu.menu__list li:first-child > div {
@@ -979,11 +911,11 @@ footer .container.container-fluid {
   max-width: 100% !important;
 }
 
-[data-theme="dark"] .theme-doc-sidebar-menu li:first-child > div > div {
+[data-theme='dark'] .theme-doc-sidebar-menu li:first-child > div > div {
   border: 1px solid var(--color-ink-ghost) !important;
 }
 
-[data-theme="light"] .menu__link--sublist-caret.menu__link--active {
+[data-theme='light'] .menu__link--sublist-caret.menu__link--active {
   font-weight: 400;
 }
 
@@ -1029,14 +961,14 @@ footer .container.container-fluid {
 }
 
 .pagination-nav__link--next > .pagination-nav__sublabel {
-  font-family: "DM Mono", monospace;
+  font-family: 'IBM Plex Mono', monospace;
   position: relative;
   padding-right: 12px;
   text-align: right;
 }
 
 .pagination-nav__link--next > .pagination-nav__sublabel::before {
-  content: "";
+  content: '';
   position: absolute;
   right: 0;
   top: 4.5px;
@@ -1048,13 +980,13 @@ footer .container.container-fluid {
 }
 
 .pagination-nav__link--prev > .pagination-nav__sublabel {
-  font-family: "DM Mono", monospace;
+  font-family: 'IBM Plex Mono', monospace;
   position: relative;
   padding-left: 12px;
 }
 
 .pagination-nav__link--prev > .pagination-nav__sublabel::before {
-  content: "";
+  content: '';
   position: absolute;
   left: 0px;
   top: 4.5px;
