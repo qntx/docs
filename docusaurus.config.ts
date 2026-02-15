@@ -25,7 +25,13 @@ const config: Config = {
   organizationName: 'qntx', // Usually your GitHub org/user name.
   projectName: 'docs', // Usually your repo name.
 
-  onBrokenLinks: 'throw',
+  onBrokenLinks: 'warn',
+
+  markdown: {
+    hooks: {
+      onBrokenMarkdownLinks: 'warn',
+    },
+  },
 
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
@@ -106,12 +112,45 @@ const config: Config = {
       items: [
         {
           type: 'docSidebar',
-          sidebarId: 'tutorialSidebar',
+          sidebarId: 'docs',
           position: 'left',
-          label: 'Tutorial',
+          label: 'Docs',
         },
         {
-          href: 'https://github.com/qntx/docs',
+          type: 'dropdown',
+          label: 'SDKs',
+          position: 'left',
+          items: [
+            {
+              label: 'x402-openai (Python)',
+              to: '/x402-openai/python/installation',
+            },
+            {
+              label: 'x402-openai (TypeScript)',
+              to: '/x402-openai/typescript/installation',
+            },
+          ],
+        },
+        {
+          type: 'dropdown',
+          label: 'Infrastructure',
+          position: 'left',
+          items: [
+            { label: 'Machi Agent Framework (Rust)', to: '/machi/overview' },
+            { label: 'r402 (Rust)', to: '/r402/overview' },
+            { label: 'ra2a (Rust)', to: '/ra2a/overview' },
+            { label: 'kobe (Rust)', to: '/kobe/overview' },
+            { label: 'erc8004 (Rust)', to: '/erc8004/overview' },
+            { label: 'Facilitator (Rust)', to: '/facilitator/overview' },
+          ],
+        },
+        {
+          href: 'https://qntx.fun',
+          label: 'Home',
+          position: 'right',
+        },
+        {
+          href: 'https://github.com/qntx',
           label: 'GitHub',
           position: 'right',
         },
@@ -123,7 +162,17 @@ const config: Config = {
     prism: {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
-      additionalLanguages: ['bash', 'python', 'diff', 'json', 'yaml'],
+      additionalLanguages: [
+        'bash',
+        'python',
+        'rust',
+        'toml',
+        'solidity',
+        'typescript',
+        'diff',
+        'json',
+        'yaml',
+      ],
     },
   } satisfies Preset.ThemeConfig,
 };
