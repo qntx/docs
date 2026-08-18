@@ -1,0 +1,6 @@
+{
+  "title": "API",
+  "description": "Fictional Echo HTTP API",
+  "root": true,
+  "pages": ["echo"]
+}

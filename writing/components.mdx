@@ -1,0 +1,84 @@
+---
+title: Components
+description: Cards, persistent Tabs, Accordion, Files, TypeTable, and Steps.
+---
+
+## Cards
+
+<Cards>
+  <Card title="Overview" href="/start/overview">
+    What the fixture tree is for.
+  </Card>
+  <Card title="Echo API" href="/api/echo">
+    Method badges and Copy curl.
+  </Card>
+</Cards>
+
+## Persistent tabs
+
+Change the tab, refresh, confirm it sticks (`groupId` + `persist`).
+
+<Tabs groupId="language" persist items={['TypeScript', 'Python']}>
+  <Tab value="TypeScript">TypeScript tab body.</Tab>
+  <Tab value="Python">Python tab body.</Tab>
+</Tabs>
+
+## Accordion
+
+<Accordions>
+  <Accordion title="What is a fixture page?">
+    A real MDX page whose copy exists only to exercise chrome.
+  </Accordion>
+  <Accordion title="Why no product APIs?">
+    The previous tree shipped outdated claims. This tree does not.
+  </Accordion>
+</Accordions>
+
+## Files
+
+<Files>
+  <Folder name="content/docs" defaultOpen>
+    <File name="index.mdx" />
+    <Folder name="writing" defaultOpen>
+      <File name="components.mdx" />
+      <File name="snippet.txt" />
+    </Folder>
+  </Folder>
+</Files>
+
+## Type table
+
+<TypeTable
+  type={{
+    baseUrl: {
+      description: 'Origin of the fictional Echo service.',
+      type: 'string',
+      default: '"http://127.0.0.1:8787"',
+      required: true,
+    },
+    timeoutMs: {
+      description: 'Abort the request after this many milliseconds.',
+      type: 'number',
+      default: '10_000',
+    },
+  }}
+/>
+
+## Steps
+
+<Steps>
+<Step>
+
+### Open the page
+
+Confirm title, description, and Copy Markdown.
+
+</Step>
+<Step>
+
+### Toggle theme
+
+Ink and paper invert. Orange focus ring stays `#ff6700`.
+
+</Step>
+</Steps>

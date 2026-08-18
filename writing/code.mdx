@@ -1,0 +1,48 @@
+---
+title: Code
+description: Shiki titles, line numbers, highlight, diff, focus, code tabs, and npm commands.
+---
+
+## Titled block
+
+```ts title="echo.ts"
+export function echo(input: string): string {
+  return input
+}
+```
+
+## Line numbers
+
+```ts lineNumbers
+const host = '127.0.0.1'
+const port = 8787
+const url = `http://${host}:${port}/v1/health`
+```
+
+## Highlight, word, diff, focus
+
+```ts
+const label = 'Fumadocs' // [!code word:Fumadocs]
+console.log('hewwo') // [!code --]
+console.log('hello') // [!code ++]
+const ready = true // [!code highlight]
+return new AbortController() // [!code focus]
+```
+
+## Code tab group
+
+```ts tab="TypeScript" tab-group="echo-client"
+import { Echo } from '@example/echo'
+await new Echo().echo({ q: 'ping' })
+```
+
+```py tab="Python"
+from echo import Echo
+Echo().echo(q="ping")
+```
+
+## Package managers
+
+```npm
+npm i @example/echo
+```

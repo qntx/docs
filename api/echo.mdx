@@ -1,0 +1,63 @@
+---
+title: Echo API
+description: Fictional HTTP API for testing method badges and Copy curl.
+---
+
+Echo is not a real service. Default origin is `http://127.0.0.1:8787`. These blocks only test API chrome.
+
+## GET /v1/health
+
+<ApiChrome method="GET" path="/v1/health" curl="curl -sS http://127.0.0.1:8787/v1/health" />
+
+```json
+{ "ok": true }
+```
+
+## GET /v1/echo
+
+<ApiChrome method="GET" path="/v1/echo" curl={'curl -sS "http://127.0.0.1:8787/v1/echo?q=ping"'} />
+
+Query: `q` (string, required).
+
+```json
+{ "text": "ping" }
+```
+
+## POST /v1/echo
+
+<ApiChrome
+  method="POST"
+  path="/v1/echo"
+  curl="curl -sS -X POST http://127.0.0.1:8787/v1/echo -H content-type:application/json -d @payload.json"
+/>
+
+```json
+{ "id": "echo_01", "text": "ping" }
+```
+
+## DELETE /v1/echo/:id
+
+<ApiChrome
+  method="DELETE"
+  path="/v1/echo/:id"
+  curl="curl -sS -X DELETE http://127.0.0.1:8787/v1/echo/echo_01"
+/>
+
+```json
+{ "deleted": true }
+```
+
+## Errors
+
+```json
+{
+  "error": {
+    "code": "BAD_QUERY",
+    "message": "q is required"
+  }
+}
+```
+
+<Callout type="warn" title="No live Try-it">
+  There is no public Echo host. Copy curl and run it against a process you start yourself.
+</Callout>

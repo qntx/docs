@@ -1,0 +1,19 @@
+name: Deploy docs site
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  trigger:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Cloudflare deploy hook
+        env:
+          HOOK: ${{ secrets.CLOUDFLARE_DEPLOY_HOOK }}
+        run: |
+          if [ -z "$HOOK" ]; then
+            echo "Set CLOUDFLARE_DEPLOY_HOOK on this repo to rebuild docs.qntx.org on push."
+            exit 0
+          fi
+          curl -fsS -X POST "$HOOK"

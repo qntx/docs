@@ -1,0 +1,6 @@
+{
+  "title": "Reference",
+  "description": "Nested folders, separators, and a long TOC",
+  "root": true,
+  "pages": ["overview", "---Deep---", "deep", "long", "[API Reference](/api/echo)"]
+}

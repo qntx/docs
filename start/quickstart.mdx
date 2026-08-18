@@ -1,0 +1,58 @@
+---
+title: Quickstart
+description: Install the example CLI and send one request to the fictional Echo service.
+---
+
+A three-step path that exercises `<Steps>`, language tabs, and npm command blocks.
+
+<Steps>
+<Step>
+
+### Install the CLI
+
+```npm
+npm i -g @example/echo-cli
+```
+
+</Step>
+<Step>
+
+### Pick a language
+
+<Tabs groupId="language" persist items={['TypeScript', 'Python']}>
+  <Tab value="TypeScript">
+
+```ts
+import { Echo } from '@example/echo'
+
+const client = new Echo({ baseUrl: 'http://127.0.0.1:8787' })
+const res = await client.echo({ q: 'ping' })
+console.log(res.text)
+```
+
+  </Tab>
+  <Tab value="Python">
+
+```py
+from echo import Echo
+
+client = Echo(base_url="http://127.0.0.1:8787")
+print(client.echo(q="ping").text)
+```
+
+  </Tab>
+</Tabs>
+
+</Step>
+<Step>
+
+### Hit health
+
+```bash
+curl -sS http://127.0.0.1:8787/v1/health
+```
+
+Then open the [Echo API](/api/echo) page and copy a curl from the chrome.
+
+</Step>
+</Steps>

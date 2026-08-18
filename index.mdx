@@ -1,0 +1,97 @@
+---
+title: Example documentation
+description: Fixture pages for layout QA. Not product documentation.
+full: true
+---
+
+<Landing
+  kicker="Example documentation"
+  title="A complete layout fixture"
+  subtitle="These pages exist to exercise every surface of this site: landing modules, article chrome, API chrome, search, and llms.txt. They are not QuantX product docs."
+  actions={[
+    { label: 'Quick start', href: '/start/quickstart', primary: true },
+    { label: 'llms.txt', href: '/llms.txt' },
+  ]}
+/>
+
+<SectionTitle>Guides</SectionTitle>
+
+<Cards>
+  <Card
+    title="Typography"
+    href="/writing/typography"
+    description="Headings, lists, tables, custom anchors, TOC."
+  />
+  <Card
+    title="Code"
+    href="/writing/code"
+    description="Shiki, line numbers, diffs, npm command tabs."
+  />
+  <Card
+    title="Components"
+    href="/writing/components"
+    description="Cards, Tabs, Accordion, Files, TypeTable, Steps."
+  />
+  <Card
+    title="Echo API"
+    href="/api/echo"
+    description="Method badges and Copy curl on a fictional service."
+  />
+</Cards>
+
+<SectionTitle>Use cases</SectionTitle>
+
+<UseCases
+  columns={[
+    {
+      title: 'Writer',
+      items: [
+        { label: 'Callouts', href: '/writing/callouts' },
+        { label: 'Images', href: '/writing/images' },
+      ],
+    },
+    {
+      title: 'Integrator',
+      items: [
+        { label: 'Quickstart', href: '/start/quickstart' },
+        { label: 'Include', href: '/writing/include' },
+      ],
+    },
+    {
+      title: 'Operator',
+      items: [
+        { label: 'Nested page', href: '/reference/deep/nested' },
+        { label: 'API reference', href: '/api/echo' },
+      ],
+    },
+  ]}
+/>
+
+<SectionTitle>Integration methods</SectionTitle>
+
+<Cards>
+  <Card title="Start here" href="/start/overview" description="What a fixture tree is for." />
+  <Card
+    title="Writing kit"
+    href="/writing/typography"
+    description="Every MDX primitive this theme ships."
+  />
+  <Card
+    title="Reference IA"
+    href="/reference/overview"
+    description="Separators, nested folders, long TOC."
+  />
+</Cards>
+
+<SectionTitle>Resources</SectionTitle>
+
+<Cards>
+  <Card title="GitHub" href="https://github.com/qntx/docs" description="Source and issues." />
+  <Card title="Home" href="https://qntx.org" description="qntx.org marketing site." />
+  <Card
+    title="llms.txt"
+    href="/llms.txt"
+    external
+    description="Agent-readable index of these fixtures."
+  />
+</Cards>

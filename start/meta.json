@@ -1,0 +1,6 @@
+{
+  "title": "Getting Started",
+  "description": "What these example pages are for",
+  "root": true,
+  "pages": ["overview", "quickstart"]
+}

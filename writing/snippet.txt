@@ -1,0 +1,1 @@
+This paragraph is pulled in with `<include>`. If you can read it on **Include**, the MDX include pipeline works. This file is not a docs page and must not appear in the sidebar.

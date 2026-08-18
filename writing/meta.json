@@ -1,0 +1,6 @@
+{
+  "title": "Writing",
+  "description": "MDX primitives this theme ships",
+  "root": true,
+  "pages": ["typography", "callouts", "code", "components", "include", "images"]
+}
