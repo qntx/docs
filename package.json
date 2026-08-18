@@ -1,0 +1,16 @@
+{
+  "name": "docs",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "lint": "markdownlint-cli2",
+    "check": "markdownlint-cli2"
+  },
+  "devDependencies": {
+    "markdownlint-cli2": "0.23.2"
+  },
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "packageManager": "bun@1.3.14"
+}
