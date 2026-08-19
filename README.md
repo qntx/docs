@@ -4,7 +4,7 @@ Public MDX source for [docs.qntx.org](https://docs.qntx.org).
 
 Files live in `content/docs`, the same tree the site uses. Edit here. The site repo mirrors this folder with `repo-sync-folder`.
 
-Sidebar order is `meta.json`. This tree is still a layout fixture, not product documentation.
+`meta.json` controls sidebar order and root tabs. This tree is still a layout fixture, not product documentation. This repository has no preview server.
 
 How to contribute: [CONTRIBUTING.md](CONTRIBUTING.md).
 
