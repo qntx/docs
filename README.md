@@ -1,21 +1,8 @@
-# QuantX Developer Docs
+<!-- markdownlint-disable MD033 MD041 -->
+
+# docs
 
 Public MDX source for [docs.qntx.org](https://docs.qntx.org).
-
-Files live in `content/docs`, the same tree the site uses. Edit here. The site repo mirrors this folder with `repo-sync-folder`.
-
-`meta.json` controls sidebar order and root tabs. This tree is still a layout fixture, not product documentation. This repository has no preview server.
-
-How to contribute: [CONTRIBUTING.md](CONTRIBUTING.md).
-
-```bash
-bun install
-bun run lint
-```
-
-## Disclaimer
-
-Read [DISCLAIMER.md](DISCLAIMER.md) before using these files. They are provided as is and are not professional advice. This tree is still a layout fixture.
 
 ## License
 
@@ -27,7 +14,7 @@ Unless you explicitly state otherwise, any contribution intentionally submitted 
 
 <div align="center">
 
-A **[QuantX](https://qntx.org)** project.
+A **[QuantX](https://qntx.org)** open-source project.
 
 <a href="https://qntx.org"><img alt="QuantX" width="369" src="https://raw.githubusercontent.com/qntx/.github/main/profile/qntx.svg" /></a>
 
