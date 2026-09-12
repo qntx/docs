@@ -60,7 +60,7 @@ bun install
 bun run lint
 ```
 
-`bun run check` is markdownlint. CI also runs `bun test` (ingest validator). There is no typecheck or site build in this repository.
+`bun run check` is markdownlint. GitHub CI is `ci-bun.yml@v2` (lint + `bun test` of `scripts/fan-in.ts`). The ingest validator lives in `qntx/workflows` and runs via `ci-docs.yml@v2` in source repositories and via the fan-in aggregator. This repository does not call `ci-docs.yml` on `content/docs`. There is no typecheck or site build in this repository.
 
 The markdownlint extension reads the nearest `.markdownlint.jsonc`. Root files use `.markdownlint.jsonc`. MDX under `content/docs` also uses `content/docs/.markdownlint.jsonc` (heading increment and bare URLs allowed). File selection is `.markdownlint-cli2.jsonc`.
 

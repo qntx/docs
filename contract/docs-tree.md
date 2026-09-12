@@ -35,6 +35,19 @@ Tree 20 MiB. File 2 MiB. No symlinks. No `.git` / `.github` path segments.
 
 ## Check
 
+Source CI:
+
+```yaml
+jobs:
+  docs:
+    uses: qntx/workflows/.github/workflows/ci-docs.yml@v2
+    permissions:
+      contents: read
+```
+
+Local, from a clone of `qntx/workflows` at the same peel as `@v2`:
+
 ```bash
-bun scripts/validate-docs-tree.ts path/to/docs --lint
+bun install --frozen-lockfile
+bun scripts/validate-docs-tree.ts /path/to/repo/docs --lint
 ```
