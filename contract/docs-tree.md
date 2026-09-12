@@ -35,6 +35,22 @@ Tree 20 MiB. File 2 MiB. No symlinks. No `.git` / `.github` path segments.
 
 ## Check
 
-```bash
-bun scripts/validate-docs-tree.ts path/to/docs --lint
+Source CI:
+
+```yaml
+jobs:
+  docs:
+    uses: qntx/workflows/.github/workflows/ci-docs.yml@v2
+    permissions:
+      contents: read
 ```
+
+Local, from a clone of `qntx/workflows` at the same peel as `@v2` (full tree or sparse `actions/validate-docs-tree`):
+
+```bash
+cd actions/validate-docs-tree
+bun install --frozen-lockfile
+bun validate-docs-tree.ts /path/to/repo/docs --lint
+```
+
+`--lint` uses the action's sibling `docs-tree.markdownlint.jsonc`. Do not `bun install` at the workflows repository root. This repository does not call `ci-docs.yml` on `content/docs`.
