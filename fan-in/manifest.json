@@ -1,4 +1,8 @@
 {
   "version": 1,
-  "sources": []
+  "sources": [
+    { "repo": "qntx/bcur" },
+    { "repo": "qntx/kobe" },
+    { "repo": "qntx/ur.js" }
+  ]
 }
