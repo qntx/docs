@@ -49,5 +49,5 @@ Local, from a clone of `qntx/workflows` at the same peel as `@v2`:
 
 ```bash
 bun install --frozen-lockfile
-bun scripts/validate-docs-tree.ts /path/to/repo/docs --lint
+bun actions/validate-docs-tree/validate-docs-tree.ts /path/to/repo/docs --lint
 ```
