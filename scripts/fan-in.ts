@@ -1,14 +1,27 @@
-import { mkdirSync, readFileSync, rmSync, writeFileSync, existsSync, readdirSync, statSync } from "node:fs";
+import {
+  mkdirSync,
+  readFileSync,
+  rmSync,
+  writeFileSync,
+  existsSync,
+  readdirSync,
+  statSync,
+} from "node:fs";
 import { spawnSync } from "node:child_process";
-import { join, resolve } from "node:path";
-import { validateDocsTree } from "./validate-docs-tree";
+import { dirname, isAbsolute, join, resolve } from "node:path";
 
 const REPO_RE = /^qntx\/([A-Za-z0-9._-]+)$/;
 const NAME_RE = /^[A-Za-z0-9._-]+$/;
 
 export type Source = { repo: string; ref?: string };
 export type Manifest = { version: number; sources: Source[] };
-export type SourceState = { commit?: string; synced_at?: string; ok: boolean; error?: string };
+export type SourceState = {
+  commit?: string;
+  validator?: string;
+  synced_at?: string;
+  ok: boolean;
+  error?: string;
+};
 export type FanInState = Record<string, SourceState>;
 
 export type GitHub = {
@@ -17,6 +30,8 @@ export type GitHub = {
 };
 
 export type CloneFn = (repo: string, ref: string, dest: string) => Promise<void>;
+
+export type ValidateFn = (root: string) => { ok: boolean; errors: string[] };
 
 function loadJson<T>(path: string, fallback: T): T {
   if (!existsSync(path)) return fallback;
@@ -72,6 +87,24 @@ export function gitSparseClone(): CloneFn {
   };
 }
 
+export function spawnDocsTreeCli(cliPath: string): ValidateFn {
+  if (!isAbsolute(cliPath)) {
+    throw new Error("DOCS_TREE_CLI must be an absolute path");
+  }
+  if (!existsSync(cliPath) || !statSync(cliPath).isFile()) {
+    throw new Error(`DOCS_TREE_CLI missing: ${cliPath}`);
+  }
+  return (docsDir: string) => {
+    const r = spawnSync("bun", [cliPath, docsDir, "--lint"], {
+      encoding: "utf8",
+      cwd: dirname(cliPath),
+    });
+    if (r.status === 0) return { ok: true, errors: [] };
+    const msg = (r.stderr || r.stdout || r.error?.message || "validate-docs-tree failed").trim();
+    return { ok: false, errors: [msg || "validate-docs-tree failed"] };
+  };
+}
+
 function docsNonEmpty(docsDir: string): boolean {
   if (!existsSync(docsDir) || !statSync(docsDir).isDirectory()) return false;
   const stack = [docsDir];
@@ -118,11 +151,13 @@ export async function runFanIn(opts: {
   workspace: string;
   github: GitHub;
   clone: CloneFn;
+  validate: ValidateFn;
+  validatorId: string;
   env: NodeJS.ProcessEnv;
   now?: string;
   tmpRoot: string;
-  markdownlintConfig: string;
 }): Promise<{ failed: boolean; state: FanInState }> {
+  if (!opts.validatorId) throw new Error("validatorId required");
   const workspace = resolve(opts.workspace);
   const manifest = loadJson<Manifest>(join(workspace, "fan-in/manifest.json"), { version: 1, sources: [] });
   if (manifest.version !== 1) throw new Error("unsupported manifest version");
@@ -163,7 +198,7 @@ export async function runFanIn(opts: {
       failed = true;
       continue;
     }
-    if (!force && head.sha && state[repo]?.commit === head.sha) {
+    if (!force && head.sha && state[repo]?.commit === head.sha && state[repo]?.validator === opts.validatorId) {
       continue;
     }
     if (head.sha === null) {
@@ -184,11 +219,11 @@ export async function runFanIn(opts: {
     const docsDir = join(tmp, "docs");
     if (!docsNonEmpty(docsDir)) {
       rmSync(dest, { recursive: true, force: true });
-      state[repo] = { commit: head.sha, ok: false, error: "unpublished", synced_at: now };
+      state[repo] = { commit: head.sha, validator: opts.validatorId, ok: false, error: "unpublished", synced_at: now };
       failed = true;
       continue;
     }
-    const v = validateDocsTree(docsDir, { markdownlintConfig: opts.markdownlintConfig });
+    const v = opts.validate(docsDir);
     if (!v.ok) {
       state[repo] = {
         ...(state[repo] ?? { ok: false }),
@@ -200,7 +235,7 @@ export async function runFanIn(opts: {
       continue;
     }
     rsyncDocs(docsDir, dest);
-    state[repo] = { commit: head.sha, ok: true, synced_at: now };
+    state[repo] = { commit: head.sha, validator: opts.validatorId, ok: true, synced_at: now };
   }
 
   const manifestNames = new Set(manifest.sources.map((s) => destName(s.repo)));
@@ -234,13 +269,31 @@ if (import.meta.main) {
     console.error("GITHUB_TOKEN required");
     process.exit(2);
   }
+  const cli = process.env.DOCS_TREE_CLI;
+  if (!cli) {
+    console.error("DOCS_TREE_CLI required");
+    process.exit(2);
+  }
+  const validatorId = process.env.DOCS_TREE_VALIDATOR_SHA;
+  if (!validatorId) {
+    console.error("DOCS_TREE_VALIDATOR_SHA required");
+    process.exit(2);
+  }
+  let validate: ValidateFn;
+  try {
+    validate = spawnDocsTreeCli(cli);
+  } catch (e) {
+    console.error(e instanceof Error ? e.message : String(e));
+    process.exit(2);
+  }
   const out = await runFanIn({
     workspace,
     github: githubFromToken(token),
     clone: gitSparseClone(),
+    validate,
+    validatorId,
     env: process.env,
     tmpRoot: join(process.env.RUNNER_TEMP || "/tmp", "fan-in"),
-    markdownlintConfig: join(workspace, "content/docs/.markdownlint.jsonc"),
   });
   const ghOut = process.env.GITHUB_OUTPUT;
   if (ghOut) writeFileSync(ghOut, `failed=${out.failed ? "true" : "false"}\n`, { flag: "a" });
