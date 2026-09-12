@@ -1,0 +1,6 @@
+/fan-in/manifest.json @gitctrlx @qntxc
+/fan-in/state.json @gitctrlx @qntxc
+/.github/workflows/fan-in.yml @gitctrlx @qntxc
+/scripts/fan-in.ts @gitctrlx @qntxc
+/scripts/validate-docs-tree.ts @gitctrlx @qntxc
+/content/docs/libs/ @gitctrlx @qntxc
