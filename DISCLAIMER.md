@@ -8,7 +8,9 @@ The Docs are not legal, financial, investment, tax, or other professional advice
 
 ## Status of this tree
 
-This repository currently contains a **layout fixture**: pages exist to exercise the documentation site, not to describe production QuantX products or live APIs. Treat every protocol name, endpoint, CLI, chain, and example as fictional until it is explicitly replaced by reviewed product documentation.
+Tabs **Getting Started**, **Writing**, **Reference**, **API**, and the home `Landing` page are a **layout fixture**. Treat protocol names, endpoints, CLIs, chains, and examples in those tabs as fictional until they are replaced by reviewed product documentation.
+
+The **Libraries** tab (`content/docs/libs/**`, except the editorial `libs/index.mdx`) is opted-in product documentation mirrored from public `qntx/<repo>/docs/` trees. Those pages describe real repositories. They can still be incomplete or wrong; review them as you would any other public docs.
 
 Published pages may be incomplete, incorrect, or out of date. QuantX may change or remove the Docs at any time without notice.
 

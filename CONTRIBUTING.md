@@ -2,7 +2,7 @@
 
 This repository is the public MDX source for [docs.qntx.org](https://docs.qntx.org). Edit files here. Do not treat the publishing site as a second editorial source.
 
-This tree is a **layout fixture**, not product documentation. Do not add endpoints, protocols, or CLI behavior as if they shipped. Read [DISCLAIMER.md](DISCLAIMER.md).
+There are two content classes. Fixture tabs (`start`, `writing`, `reference`, `api`, home) exercise the site. **Libraries** (`content/docs/libs/<repo>/`) is opted-in product documentation copied from `qntx/<repo>/docs/`. Edit product pages in the source repository, not in the mirrored folder. Read [DISCLAIMER.md](DISCLAIMER.md). Ingest rules: [contract/docs-tree.md](contract/docs-tree.md).
 
 This repository has no preview server (`bun run dev` does not exist here). After a change lands on `main`, the site copies `content/docs` on an hourly schedule, or when a maintainer runs the sync workflow. The live site is not updated at merge time.
 
@@ -60,7 +60,7 @@ bun install
 bun run lint
 ```
 
-`bun run check` is the same command. CI runs that after `bun install --frozen-lockfile`. There is no typecheck or site build in this repository.
+`bun run check` is markdownlint. CI also runs `bun test` (ingest validator). There is no typecheck or site build in this repository.
 
 The markdownlint extension reads the nearest `.markdownlint.jsonc`. Root files use `.markdownlint.jsonc`. MDX under `content/docs` also uses `content/docs/.markdownlint.jsonc` (heading increment and bare URLs allowed). File selection is `.markdownlint-cli2.jsonc`.
 
