@@ -1,0 +1,18 @@
+---
+title: Layers
+description: Bytewords, fountain codes, and UR.
+---
+
+| Layer | Module      | Spec                                                                                                       |
+| ----- | ----------- | ---------------------------------------------------------------------------------------------------------- |
+| L1    | `bytewords` | [BCR-2020-012](https://github.com/BlockchainCommons/Research/blob/master/papers/bcr-2020-012-bytewords.md) |
+| L2    | `fountain`  | BCR-2024-001 MUR                                                                                           |
+| L3    | `ur`        | [BCR-2020-005](https://github.com/BlockchainCommons/Research/blob/master/papers/bcr-2020-005-ur.md)        |
+
+The public entry re-exports `bytewords`, `FountainEncoder` / `FountainDecoder`, and `encode` / `decode` / `Encoder` / `Decoder`. Deep imports of RNG helpers are not a supported subpath.
+
+L3 does not parse or canonicalize application payloads. dCBOR is a higher layer, not this package.
+
+Fountain `seqNum` is `1..=0xffffffff` and does not wrap. Hitting `0xffffffff` is `ResourceLimit` with `limit: "sequence"` (intentional; BCR-2024-001 wrap-to-0 is unimplemented).
+
+Part CBOR is shortest-form only. Inbound non-canonical integers (as ur-rs `minicbor` may emit) are `InvalidPartCbor`. Encoder goldens still match ur-rs / URKit.

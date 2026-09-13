@@ -3,6 +3,9 @@
   "description": "Guides mirrored from public QuantX source repositories. Edit them in the source repo, not here.",
   "root": true,
   "pages": [
-    "index"
+    "index",
+    "bcur",
+    "kobe",
+    "ur.js"
   ]
 }
