@@ -2,7 +2,11 @@
 
 This repository is the public MDX source for [docs.qntx.org](https://docs.qntx.org). Edit files here. Do not treat the publishing site as a second editorial source.
 
-There are two content classes. Fixture tabs (`start`, `writing`, `reference`, `api`, home) exercise the site. **Libraries** (`content/docs/libs/<repo>/`) is opted-in product documentation copied from `qntx/<repo>/docs/`. Edit product pages in the source repository, not in the mirrored folder. Read [DISCLAIMER.md](DISCLAIMER.md). Ingest rules: [contract/docs-tree.md](contract/docs-tree.md).
+There are two content classes. Fixture tabs (`start`, `writing`, `reference`, `api`, home) exercise the site. **Libraries** (`content/docs/libs/<repo>/`) is opted-in product documentation copied from `qntx/<repo>/docs/`.
+
+Repos listed in [`fan-in/manifest.json`](fan-in/manifest.json) are rsync'd hourly from `qntx/<repo>/docs/` into `content/docs/libs/<repo>/`. Edit those pages in the source repository. Edits under a mirrored repo folder are overwritten by fan-in. `content/docs/libs/index.mdx` is editorial in this repository; it is not a mirror.
+
+Read [DISCLAIMER.md](DISCLAIMER.md). Ingest rules: [contract/docs-tree.md](contract/docs-tree.md).
 
 This repository has no preview server (`bun run dev` does not exist here). After a change lands on `main`, the site copies `content/docs` on an hourly schedule, or when a maintainer runs the sync workflow. The live site is not updated at merge time.
 
