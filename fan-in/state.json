@@ -1,20 +1,20 @@
 {
   "qntx/bcur": {
-    "commit": "533fff059e58bfefc4b800c4719e2ea2e1088e2a",
-    "validator": "155ec1942e06bf96743c7985e653aba0e5d8de6c",
+    "commit": "2d5b2fdc5fc52bd622d988f4880de985ec103c42",
+    "validator": "0c99de170ee6441805e69e775c135aad606e12b2",
     "ok": true,
-    "synced_at": "2026-09-13T12:54:27.078Z"
+    "synced_at": "2026-09-15T07:00:58.626Z"
   },
   "qntx/kobe": {
     "commit": "23390046c2b2bdb94107ac8a7781815f1b3ad46d",
-    "validator": "155ec1942e06bf96743c7985e653aba0e5d8de6c",
+    "validator": "0c99de170ee6441805e69e775c135aad606e12b2",
     "ok": true,
-    "synced_at": "2026-09-13T12:54:27.078Z"
+    "synced_at": "2026-09-15T07:00:58.626Z"
   },
   "qntx/ur.js": {
     "commit": "fc3243def74704c5e0b5adf34cf785f312728ac2",
-    "validator": "155ec1942e06bf96743c7985e653aba0e5d8de6c",
+    "validator": "0c99de170ee6441805e69e775c135aad606e12b2",
     "ok": true,
-    "synced_at": "2026-09-13T14:52:26.028Z"
+    "synced_at": "2026-09-15T07:00:58.626Z"
   }
 }
