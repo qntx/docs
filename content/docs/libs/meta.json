@@ -4,8 +4,7 @@
   "root": true,
   "pages": [
     "index",
-    "bcur",
     "kobe",
-    "ur.js"
+    "ur"
   ]
 }
