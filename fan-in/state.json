@@ -1,14 +1,14 @@
 {
   "qntx/kobe": {
     "commit": "dad6a57a45f9ed8f32c48ea331415647a85f1a46",
-    "validator": "89aa35b2969e227c1e600b06388c51ec861ab2fe",
+    "validator": "b1a930e790044f34f06bd5e1e0ede9e7dd5fa122",
     "ok": true,
-    "synced_at": "2026-10-24T14:52:26.841Z"
+    "synced_at": "2026-10-26T03:59:33.846Z"
   },
   "qntx/ur": {
     "commit": "d9d730a7c770892b6e115f2ed229e896d8e4ebd2",
-    "validator": "89aa35b2969e227c1e600b06388c51ec861ab2fe",
+    "validator": "b1a930e790044f34f06bd5e1e0ede9e7dd5fa122",
     "ok": true,
-    "synced_at": "2026-10-24T07:00:13.025Z"
+    "synced_at": "2026-10-26T03:59:33.846Z"
   }
 }
